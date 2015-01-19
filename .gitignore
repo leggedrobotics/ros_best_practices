@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+# Eclipse
+.cproject
+.project
+.settings
+*.pydevproject
+
+# OS X
+.DS_Store

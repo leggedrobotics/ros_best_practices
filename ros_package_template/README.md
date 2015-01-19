@@ -119,14 +119,18 @@ Write a description of the NODE_A_NAME node.
 * **`input_topic`** (string, default: "/my_topic")
 
 	The name of the input topic.
+	
+* **`cache_size`** (int, default: 200, min: 0, max: 1000)
+	
+	The size of the cache.
 
-* **`map/length`** (double, default: 0.003)
+* **`map/length`** (double, default: 3.0)
 
 	The length of the map (in \[m\]).
 
-* **`cache_size`** (int, default: 200, min: 0, max: 1000)
-
-	The size of the cache.
+* **`map/resolution`** (double, default: 0.003, min: 0.01)
+	
+	The resolution of the map (in \[m\] per cell).
 
 
 ### NODE_B_NAME

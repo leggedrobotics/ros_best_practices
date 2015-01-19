@@ -12,7 +12,7 @@ The source code is released under a [BSD 3-Clause license](ros_package_template/
 Contact: Name of person to contact, email@ethz.ch  
 Affiliation: Autonomous Systems Lab, ETH Zurich**
 
-![Example image](ros_package_template/doc/example.jpg)
+![Example image](doc/example.jpg)
 
 
 ### Publications

@@ -22,7 +22,7 @@ class Algorithm
    * Add new measurement data.
    * @param data the new data.
    */
-  void addData(double data);
+  void addData(const double data);
 
   /*!
    * Get the computed average of the data.

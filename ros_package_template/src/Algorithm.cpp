@@ -12,7 +12,7 @@ Algorithm::~Algorithm()
 {
 }
 
-void Algorithm::addData(double data)
+void Algorithm::addData(const double data)
 {
   average_ = (nMeasurements_ * average_ + data) / (nMeasurements_ + 1);
   nMeasurements_++;

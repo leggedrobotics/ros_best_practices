@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ros_package_template</name>
+  <version>0.1.0</version>
+  <description>A template for ROS packages.</description>
+  <maintainer email="pfankhauser@ethz.ch">Peter Fankhauser</maintainer>
+  <license>BSD</license>
+  <url type="website">https://github.com/ethz-asl/ros_best_practices</url>
+  <url type="bugtracker">https://github.com/ethz-asl/ros_best_practices/issues</url>
+  <author email="pfankhauser@ethz.ch">Peter Fankhauser</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+</package>

@@ -13,4 +13,6 @@
   
   <depend>roscpp</depend>
   <depend>sensor_msgs</depend>
+
+  <build_depend>roslint</build_depend>
 </package>

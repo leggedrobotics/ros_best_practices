@@ -21,7 +21,7 @@ TEST(Algorithm, singleDataPoint)
   Algorithm algorithm;
   algorithm.addData(inputData);
   const double average = algorithm.getAverage();
-  EXPECT_EQ(inputData, average);
+  EXPECT_NEAR(inputData, average, 1e-10);
 }
 
 TEST(Algorithm, multipleDataPoints)
@@ -39,5 +39,5 @@ TEST(Algorithm, multipleDataPoints)
     algorithm.addData(data);
   }
   const double average = algorithm.getAverage();
-  EXPECT_EQ(sum / nMeasurements, average);
+  EXPECT_NEAR(sum / nMeasurements, average, 1e-10);
 }

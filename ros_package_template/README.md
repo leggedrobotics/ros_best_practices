@@ -12,6 +12,8 @@ The source code is released under a [BSD 3-Clause license](ros_package_template/
 Maintainer: Péter Fankhauser, pfankhauser@ethz.ch  
 Affiliation: Autonomous Systems Lab, ETH Zurich**
 
+[![Build Status](http://rsl-ci.ethz.ch/buildStatus/icon?job=ros_best_practices)](http://rsl-ci.ethz.ch/job/ros_best_practices/)
+
 ![Example image](doc/example.jpg)
 
 

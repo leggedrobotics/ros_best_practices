@@ -64,7 +64,7 @@ To build from source, clone the latest version from this repository into your ca
 
 Run the unit tests with
 
-	catkin_make run_tests_ros_package_template run_tests_ros_package_template
+	catkin_make run_tests_ros_package_template
 
 
 ## Usage

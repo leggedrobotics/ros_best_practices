@@ -11,7 +11,7 @@
        This means that if the user does not specify some parameters, then the default ones
        will be loaded.  -->
 
-	<!-- Default parameters. Note the usage of 'value', to avoid they can be wrongly changed -->
+  <!-- Default parameters. Note the usage of 'value', to avoid they can be wrongly changed -->
   <arg name="default_param_file"    value="$(find ros_package_template)/config/default.yaml" />
 
   <!-- User's parameters that con overly default ones: use default ones in case user does not specify them -->

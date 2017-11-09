@@ -9,15 +9,15 @@
        The user can overwrite even just a subset of the default parameters. Only parameters
        contained in 'overlying_param_file' will overwrite the corresponding default ones.
        This means that if the user does not specify some parameters, then the default ones
-       will be loaded.  -->
+       will be loaded. -->
 
-  <!-- Default parameters. Note the usage of 'value', to avoid they can be wrongly changed -->
-  <arg name="default_param_file"    value="$(find ros_package_template)/config/default.yaml" />
+  <!-- Default parameters. Note the usage of 'value', to avoid they can be wrongly changed. -->
+  <arg name="default_param_file" value="$(find ros_package_template)/config/default.yaml" />
 
-  <!-- User's parameters that con overly default ones: use default ones in case user does not specify them -->
-  <arg name="overlying_param_file"  default="$(arg default_param_file)" />
+  <!-- User's parameters that can overly default ones: use default ones in case user does not specify them. -->
+  <arg name="overlying_param_file" default="$(arg default_param_file)" />
 
-  <!-- Launch ROS Package Template Node -->
+  <!-- Launch ROS Package Template node. -->
   <node pkg="ros_package_template" type="ros_package_template" name="ros_package_template" output="screen">
     <rosparam command="load" file="$(arg default_param_file)" />
     <!-- Overlay parameters if user specified them. They must be loaded after default parameters! -->

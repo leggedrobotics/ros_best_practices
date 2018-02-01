@@ -14,6 +14,10 @@ find_package(catkin REQUIRED
     sensor_msgs
 )
 
+## Find system libraries
+#find_package(Eigen3 REQUIRED)
+#find_package(Boost REQUIRED)
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -26,10 +30,14 @@ find_package(catkin REQUIRED
 catkin_package(
   INCLUDE_DIRS
     include
-#  LIBRARIES
+#    ${EIGEN3_INCLUDE_DIR}
+  LIBRARIES
+    ${PROJECT_NAME}_core
   CATKIN_DEPENDS
+    roscpp
     sensor_msgs
 #  DEPENDS
+#    Boost
 )
 
 ###########
@@ -41,6 +49,8 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+#  ${EIGEN3_INCLUDE_DIR}
+#  ${Boost_INCLUDE_DIRS}
 )
 
 ## Declare a cpp library
@@ -52,6 +62,15 @@ add_library(${PROJECT_NAME}_core
 add_executable(${PROJECT_NAME}
   src/${PROJECT_NAME}_node.cpp
   src/RosPackageTemplate.cpp
+)
+
+## Add dependencies to exported targets, like ROS msgs or srvs
+add_dependencies(${PROJECT_NAME}_core
+  ${catkin_EXPORTED_TARGETS}
+)
+
+add_dependencies(${PROJECT_NAME}
+  ${catkin_EXPORTED_TARGETS}
 )
 
 ## Specify libraries to link executable targets against

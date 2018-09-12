@@ -10,9 +10,9 @@ This is a template: replace, remove, and add where required. Describe here what 
 
 The source code is released under a [BSD 3-Clause license](ros_package_template/LICENSE).
 
-**Author(s): Péter Fankhauser   
-Maintainer: Péter Fankhauser, pfankhauser@ethz.ch  
-Affiliation: Autonomous Systems Lab, ETH Zurich**
+**Author: Péter Fankhauser<br />
+Affiliation: [ANYbotics](https://www.anybotics.com/)<br />
+Maintainer: Péter Fankhauser, pfankhauser@anybotics.com**
 
 The PACKAGE NAME package has been tested under [ROS] Indigo and Ubuntu 14.04. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
@@ -92,17 +92,17 @@ Config file folder/set 2
 
 ## Launch files
 
-* **launch_file_1.launch:** shortly explain what is launched (e.g standard simulation, simulation with gdb,...) 
-    
+* **launch_file_1.launch:** shortly explain what is launched (e.g standard simulation, simulation with gdb,...)
+
      Argument set 1
 
      - **`argument_1`** Short description (e.g. as commented in launch file). Default: `default_value`.
 
     Argument set 2
 
-    - **`...`** 
+    - **`...`**
 
-* **...** 
+* **...**
 
 ## Nodes
 

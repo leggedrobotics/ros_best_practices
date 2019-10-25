@@ -51,7 +51,7 @@ include_directories(
 #  ${Boost_INCLUDE_DIRS}
 )
 
-include(${EIGEN3_USE_FILE})
+#include(${EIGEN3_USE_FILE})
 
 ## Declare a cpp library
 add_library(${PROJECT_NAME}_core

@@ -12,7 +12,7 @@
        will be loaded. -->
 
   <!-- Default parameters. Note the usage of 'value', to avoid they can be wrongly changed. -->
-  <arg name="default_param_file" value="$(find ros_package_template)/config/default.yaml" />
+  <arg name="default_param_file" value="$(dirname)/../config/default.yaml" />
 
   <!-- User's parameters that can overly default ones: use default ones in case user does not specify them. -->
   <arg name="overlying_param_file" default="$(arg default_param_file)" />

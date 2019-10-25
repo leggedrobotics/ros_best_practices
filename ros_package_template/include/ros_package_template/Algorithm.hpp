@@ -22,15 +22,15 @@ class Algorithm
    * Add new measurement data.
    * @param data the new data.
    */
-  void addData(const double data);
+  virtual void addData(const double data);
 
   /*!
    * Get the computed average of the data.
    * @return the average of the data.
    */
-  double getAverage() const;
+  virtual double getAverage() const;
 
- private:
+ protected:
 
   //! Internal variable to hold the current average.
   double average_;

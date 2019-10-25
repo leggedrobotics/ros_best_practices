@@ -29,7 +29,6 @@ find_package(catkin REQUIRED
 catkin_package(
   INCLUDE_DIRS
     include
-#    ${EIGEN3_INCLUDE_DIR}
   LIBRARIES
     ${PROJECT_NAME}_core
   CATKIN_DEPENDS
@@ -37,6 +36,7 @@ catkin_package(
     sensor_msgs
 #  DEPENDS
 #    Boost
+#    EIGEN3
 )
 
 ###########
@@ -48,9 +48,10 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-#  ${EIGEN3_INCLUDE_DIR}
 #  ${Boost_INCLUDE_DIRS}
 )
+
+include(${EIGEN3_USE_FILE})
 
 ## Declare a cpp library
 add_library(${PROJECT_NAME}_core

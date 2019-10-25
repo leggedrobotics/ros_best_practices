@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(ros_package_template)
 
 ## Use C++11
-add_definitions(-std=c++11)
+set (CMAKE_CXX_STANDARD 11)
 ## By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
 ## enforcing cleaner code.
 #add_definitions(-std=c++11 -Wall -Werror)

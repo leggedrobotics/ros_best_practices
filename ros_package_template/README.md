@@ -52,9 +52,6 @@ To install all packages from the this repository as Debian packages use
 - [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics),
 - [Eigen] (linear algebra library)
 
-		sudo apt-get install libeigen3-dev
-
-
 #### Building
 
 To build from source, clone the latest version from this repository into your catkin workspace and compile the package using
@@ -62,6 +59,7 @@ To build from source, clone the latest version from this repository into your ca
 	cd catkin_workspace/src
 	git clone https://github.com/ethz-asl/ros_package_template.git
 	cd ../
+	rosdep install --from-paths . --ignore-src
 	catkin_make
 
 

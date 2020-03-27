@@ -1,4 +1,4 @@
-## ROS Best Practices, Conventions, and Tricks
+## ROS Best Practices, Conventions and Tricks
 
 This is a loose collection of best practices, conventions, and tricks for using the Robot Operating System (ROS). It builds up on the official ROS documentation and other resources and is meant as summary and overview.
 

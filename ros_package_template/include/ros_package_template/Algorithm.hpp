@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 namespace ros_package_template {
 
 /*!

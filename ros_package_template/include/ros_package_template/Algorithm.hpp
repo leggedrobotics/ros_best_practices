@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 namespace ros_package_template {
 
 /*!
@@ -36,7 +38,7 @@ class Algorithm
   double average_;
 
   //! Number of measurements taken.
-  unsigned int nMeasurements_;
+  size_t nMeasurements_;
 };
 
 } /* namespace */

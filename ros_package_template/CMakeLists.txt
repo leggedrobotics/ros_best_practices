@@ -1,11 +1,9 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.10)
 project(ros_package_template)
 
-## Use C++11
-add_definitions(-std=c++11)
 ## By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
 ## enforcing cleaner code.
-#add_definitions(-std=c++11 -Wall -Werror)
+add_definitions(-Wall -Werror)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED
@@ -57,12 +55,14 @@ include_directories(
 add_library(${PROJECT_NAME}_core
    src/Algorithm.cpp
 )
+target_compile_features(${PROJECT_NAME}_core INTERFACE cxx_std_11)
 
 ## Declare cpp executables
 add_executable(${PROJECT_NAME}
   src/${PROJECT_NAME}_node.cpp
   src/RosPackageTemplate.cpp
 )
+target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_11)
 
 ## Add dependencies to exported targets, like ROS msgs or srvs
 add_dependencies(${PROJECT_NAME}_core

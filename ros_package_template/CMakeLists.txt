@@ -118,8 +118,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 catkin_add_gtest(${PROJECT_NAME}-test
   test/test_ros_package_template.cpp
   test/AlgorithmTest.cpp)
-endif()
-
-if(TARGET ${PROJECT_NAME}-test)
-  target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME}_core)
+target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME}_core)
 endif()

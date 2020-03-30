@@ -25,6 +25,7 @@ jobs:
     - name: Build (Release)
       run: |
         sh /opt/ros/melodic/setup.sh
+        git clone https://github.com/ros/catkin.git src/catkin
         catkin init
         catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
         

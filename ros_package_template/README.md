@@ -60,7 +60,7 @@ To install all packages from the this repository as Debian packages use
 To build from source, clone the latest version from this repository into your catkin workspace and compile the package using
 
 	cd catkin_workspace/src
-	git clone https://github.com/ethz-asl/ros_package_template.git
+	git clone https://github.com/ethz-asl/ros_best_practices.git
 	cd ../
 	catkin_make
 
@@ -71,6 +71,11 @@ Run the unit tests with
 
 	catkin_make run_tests_ros_package_template
 
+### Static code analysis
+
+Run the static code analysis with
+
+	catkin_make roslint_ros_package_template
 
 ## Usage
 

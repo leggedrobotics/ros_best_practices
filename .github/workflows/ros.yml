@@ -13,21 +13,36 @@ jobs:
       image: ros:melodic-ros-base-bionic
 
     steps:
-    - uses: actions/checkout@v2
-      with: 
-        path: src/ros_best_practices 
+    - name: Environment Info
+      run: |
+        pwd
+        uname -r
+        lsb_release -a
 
     - name: Install Catkin
       run: |
         apt-get update
-        apt-get install -y python-catkin-tools
+        apt-get install -y python-catkin-tools tree
+
+    - uses: actions/checkout@v2
+      with: 
+        path: src/ros_best_practices 
+
+    - name: Rosdep
+      run: |
+        rosdep update
+        rosdep install --from-paths src --ignore-src -r -y
 
     - name: Build (Release)
+      shell: bash
       run: |
-        sh /opt/ros/melodic/setup.sh
-        git clone https://github.com/ros/catkin.git src/catkin
+        source /opt/ros/melodic/setup.bash
+        tree 
         catkin init
         catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
         
     - name: Test
-      run: catkin run_tests
+      shell: bash
+      run: |
+        source devel/setup.bash
+        catkin run_tests

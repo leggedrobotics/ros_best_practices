@@ -17,6 +17,11 @@ jobs:
       with: 
         path: src/ros_best_practices 
 
+    - name: Install Catkin
+      run: |
+        apt-get update
+        apt-get install -y python-catkin-tools
+
     - name: Build (Release)
       run: |
         catkin init

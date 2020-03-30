@@ -1,0 +1,26 @@
+name: ROS Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: ros:melodic-ros-core-bionic
+
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        path: src/ros_best_practices 
+
+    - name: Build (Release)
+      run: |
+        catkin init
+        catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
+        
+    - name: Test
+      run: catkin run_tests

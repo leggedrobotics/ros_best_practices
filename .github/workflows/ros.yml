@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: ros:melodic-ros-core-bionic
+      image: ros:melodic-ros-base-bionic
 
     steps:
     - uses: actions/checkout@v2

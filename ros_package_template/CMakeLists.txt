@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(ros_package_template)
 
+## Use C++14
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 ## By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
 ## enforcing cleaner code.
 add_definitions(-Wall -Werror)
@@ -14,8 +18,8 @@ find_package(catkin REQUIRED
 )
 
 ## Find system libraries
-#find_package(Eigen3 REQUIRED)
-#find_package(Boost REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(Boost REQUIRED)
 
 ###################################
 ## catkin specific configuration ##
@@ -29,14 +33,20 @@ find_package(catkin REQUIRED
 catkin_package(
   INCLUDE_DIRS
     include
+    ## This is only necessary because Eigen3 sets a non-standard EIGEN3_INCLUDE_DIR variable
+    ${EIGEN3_INCLUDE_DIR}
   LIBRARIES
     ${PROJECT_NAME}_core
   CATKIN_DEPENDS
     roscpp
     sensor_msgs
-#  DEPENDS
-#    Boost
-#    EIGEN3
+  DEPENDS
+  ## find_package(Eigen3) provides a non standard EIGEN3_INCLUDE_DIR instead of Eigen3_INCLUDE_DIRS.
+  ## Therefore, the DEPEND does not work as expected and we need to add the directory to the INCLUDE_DIRS
+  # Eigen3
+
+  ## Boost is not part of the DEPENDS since it is only used in source files,
+  ## Dependees do not depend on Boost when they depend on this package.
 )
 
 ###########
@@ -48,10 +58,11 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-#  ${Boost_INCLUDE_DIRS}
+  # Set manually because Eigen sets a non standard INCLUDE DIR
+  ${EIGEN3_INCLUDE_DIR}
+  # Set because Boost is an internal dependency, not transitive.
+  ${Boost_INCLUDE_DIRS}
 )
-
-#include(${EIGEN3_USE_FILE})
 
 ## Declare a cpp library
 add_library(${PROJECT_NAME}_core

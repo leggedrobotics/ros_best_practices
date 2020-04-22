@@ -1,6 +1,8 @@
 #pragma once
 
-#include <cstddef>
+#include <memory>
+
+#include <Eigen/Core>
 
 namespace ros_package_template {
 
@@ -27,18 +29,24 @@ class Algorithm
   void addData(const double data);
 
   /*!
+   * Add multiple measurements as once.
+   * @param data new data.
+   */
+  void addData(const Eigen::VectorXd& data);
+
+  /*!
    * Get the computed average of the data.
    * @return the average of the data.
    */
   double getAverage() const;
 
  private:
+ 
+  //! Forward declared structure that will contain the data
+  struct Data;
 
-  //! Internal variable to hold the current average.
-  double average_;
-
-  //! Number of measurements taken.
-  size_t nMeasurements_;
+  //! Pointer to data (pimpl)
+  std::unique_ptr<Data> data_;
 };
 
 } /* namespace */

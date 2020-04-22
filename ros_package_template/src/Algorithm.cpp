@@ -1,26 +1,39 @@
 #include "ros_package_template/Algorithm.hpp"
 
+#include <utility>
+
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics/mean.hpp>
+#include <boost/accumulators/statistics/count.hpp>
+
 namespace ros_package_template {
 
-Algorithm::Algorithm()
-    : average_(0.0),
-      nMeasurements_(0)
-{
+using namespace boost::accumulators;
+
+struct Algorithm::Data {
+  accumulator_set<double, features<tag::mean, tag::count>> acc;
+};
+
+Algorithm::Algorithm() {
+  data_ = std::make_unique<Data>();
 }
 
-Algorithm::~Algorithm()
-{
-}
+Algorithm::~Algorithm() = default;
 
 void Algorithm::addData(const double data)
 {
-  average_ = (nMeasurements_ * average_ + data) / (nMeasurements_ + 1);
-  nMeasurements_++;
+  data_->acc(data);
+}
+
+void Algorithm::addData(const Eigen::VectorXd& data)
+{
+  for(auto i = 0; i < data.size(); ++i)
+    addData(data[i]);
 }
 
 double Algorithm::getAverage() const
 {
-  return average_;
+  return count(data_->acc) ? mean(data_->acc) : 0;
 }
 
 } /* namespace */

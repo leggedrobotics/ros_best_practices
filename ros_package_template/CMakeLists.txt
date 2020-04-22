@@ -10,6 +10,7 @@ find_package(catkin REQUIRED
   COMPONENTS
     roscpp
     sensor_msgs
+    roslint
 )
 
 ## Find system libraries
@@ -120,3 +121,9 @@ catkin_add_gtest(${PROJECT_NAME}-test
   test/AlgorithmTest.cpp)
 target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME}_core)
 endif()
+
+##########################
+## Static code analysis ##
+##########################
+
+roslint_cpp()

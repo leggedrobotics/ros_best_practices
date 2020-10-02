@@ -6,6 +6,8 @@ This is a template: replace, remove, and add where required. Describe here what 
 
 **Keywords:** example, package, template
 
+Or, add some keywords to the Bitbucket or GitHub repository.
+
 ### License
 
 The source code is released under a [BSD 3-Clause license](ros_package_template/LICENSE).
@@ -14,7 +16,8 @@ The source code is released under a [BSD 3-Clause license](ros_package_template/
 Affiliation: [ANYbotics](https://www.anybotics.com/)<br />
 Maintainer: Péter Fankhauser, pfankhauser@anybotics.com**
 
-The PACKAGE NAME package has been tested under [ROS] Indigo and Ubuntu 14.04. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
+The PACKAGE NAME package has been tested under [ROS] Indigo, Melodic and Noetic on respectively Ubuntu 14.04, 18.04 and 20.04.
+This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
 [![Build Status](http://rsl-ci.ethz.ch/buildStatus/icon?job=ros_best_practices)](http://rsl-ci.ethz.ch/job/ros_best_practices/)
 
@@ -43,7 +46,11 @@ If you use this work in an academic context, please cite the following publicati
 
 To install all packages from the this repository as Debian packages use
 
-    sudo apt-get install ros-indigo-...
+    sudo apt-get install ros-noetic-...
+    
+Or better, use `rosdep`:
+
+	sudo rosdep install --from-paths src
 
 ### Building from Source
 
@@ -51,6 +58,8 @@ To install all packages from the this repository as Debian packages use
 
 - [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics),
 - [Eigen] (linear algebra library)
+
+	sudo rosdep install --from-paths src
 
 #### Building
 
@@ -62,6 +71,27 @@ To build from source, clone the latest version from this repository into your ca
 	rosdep install --from-paths . --ignore-src
 	catkin_make
 
+### Running in Docker
+
+Docker is a great way to run an application with all dependencies and libraries bundles together. 
+Make sure to [install Docker](https://docs.docker.com/get-docker/) first. 
+
+First, spin up a simple container:
+
+	docker run -ti --rm --name ros-container ros:noetic bash
+	
+This downloads the `ros:noetic` image from the Docker Hub, indicates that it requires an interactive terminal (`-t, -i`), gives it a name (`--name`), removes it after you exit the container (`--rm`) and runs a command (`bash`).
+
+Now, create a catkin workspace, clone the package, build it, done!
+
+	apt-get update && apt-get install -y git
+	mkdir -p /ws/src && cd /ws/src
+	git clone https://github.com/leggedrobotics/ros_best_practices.git
+	cd ..
+	rosdep install --from-path src
+	catkin_make
+	source devel/setup.bash
+	roslaunch ros_package_template ros_package_template.launch
 
 ### Unit Tests
 

@@ -1,22 +1,30 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model
+   href="http://download.ros.org/schema/package_format3.xsd"
+   schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>ros_package_template</name>
   <version>0.1.0</version>
   <description>A template for ROS packages.</description>
-  <maintainer email="pfankhauser@anybotics.com">Peter Fankhauser</maintainer>
+  <maintainer email="tlankhorst@ethz.ch">Tom Lankhorst</maintainer>
   <license>BSD</license>
-  <url type="website">https://github.com/ethz-asl/ros_best_practices</url>
-  <url type="bugtracker">https://github.com/ethz-asl/ros_best_practices/issues</url>
+  <url type="website">https://github.com/leggedrobotics/ros_best_practices</url>
+  <url type="bugtracker">https://github.com/leggedrobotics/ros_best_practices/issues</url>
   <author email="pfankhauser@anybotics.com">Peter Fankhauser</author>
+  <author email="tlankhorst@ethz.ch">Tom Lankhorst</author>
 
   <!-- buildtool_depend: dependencies of the build process -->
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <!-- build_depend: dependencies only used in source files -->
   <build_depend>boost</build_depend>
   <!-- depend: build, export, and execution dependency -->
   <depend>eigen</depend>
-  <depend>roscpp</depend>
   <depend>sensor_msgs</depend>
 
-  <build_depend>roslint</build_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

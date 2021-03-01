@@ -2,7 +2,7 @@ name: ROS Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, melodic, noetic, foxy ]
   pull_request:
     branches: [ master ]
 

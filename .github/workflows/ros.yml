@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: ros:melodic-ros-base-bionic
+      image: ros:noetic-ros-base-focal
 
     steps:
     - name: Environment Info
@@ -36,7 +36,7 @@ jobs:
     - name: Build (Release)
       shell: bash
       run: |
-        source /opt/ros/melodic/setup.bash
+        source /opt/ros/noetic/setup.bash
         tree 
         catkin init
         catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release

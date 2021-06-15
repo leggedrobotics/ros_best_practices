@@ -22,7 +22,7 @@ jobs:
     - name: Install Catkin
       run: |
         apt-get update
-        apt-get install -y python-catkin-tools tree
+        apt-get install -y python3-catkin-tools python3-osrf-pycommon tree
 
     - uses: actions/checkout@v2
       with: 

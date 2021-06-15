@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: ros:melodic-ros-base-bionic
+      image: ros:noetic
 
     steps:
     - name: Environment Info
@@ -22,7 +22,7 @@ jobs:
     - name: Install Catkin
       run: |
         apt-get update
-        apt-get install -y python-catkin-tools tree
+        apt-get install -y python3-catkin-tools python3-osrf-pycommon tree
 
     - uses: actions/checkout@v2
       with: 
@@ -36,7 +36,7 @@ jobs:
     - name: Build (Release)
       shell: bash
       run: |
-        source /opt/ros/melodic/setup.bash
+        source /opt/ros/noetic/setup.bash
         tree 
         catkin init
         catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release

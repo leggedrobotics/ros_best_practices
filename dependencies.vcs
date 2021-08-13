@@ -1,0 +1,5 @@
+repositories:
+  message_logger:
+    type: git
+    url: git@github.com:leggedrobotics/message_logger.git
+    version: master

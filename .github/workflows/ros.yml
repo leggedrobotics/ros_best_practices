@@ -4,7 +4,6 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -13,6 +12,11 @@ jobs:
       image: ros:noetic
 
     steps:
+    # performance improvements, see https://abbbi.github.io/actions/
+    - name: Disable man-db update
+      run: sudo rm -f /var/lib/man-db/auto-update
+    # end of performance improvements
+    
     - name: Environment Info
       run: |
         pwd

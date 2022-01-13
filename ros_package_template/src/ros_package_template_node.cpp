@@ -1,8 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
-
 #include "ros_package_template/RosPackageTemplate.hpp"
 
-int main(int argc, char** argv)
+int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 

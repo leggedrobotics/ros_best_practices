@@ -19,6 +19,7 @@
   <build_depend>boost</build_depend>
   <!-- depend: build, export, and execution dependency -->
   <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
   <depend>eigen</depend>
   <depend>sensor_msgs</depend>
 

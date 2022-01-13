@@ -18,12 +18,12 @@ public:
    * Constructor.
    * @param nodeHandle the ROS node handle.
    */
-  RosPackageTemplate(const std::string & name);
+  RosPackageTemplate(const rclcpp::NodeOptions & options);
 
-  /*!
+    /*!
    * Destructor.
    */
-  virtual ~RosPackageTemplate();
+    virtual ~RosPackageTemplate();
 };
 
 }  // namespace ros_package_template

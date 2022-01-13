@@ -24,14 +24,15 @@ find_package(Eigen3 REQUIRED)
 ## Build ##
 ###########
 
-ament_auto_add_library(${PROJECT_NAME}_core 
+ament_auto_add_library(${PROJECT_NAME} SHARED
   src/Algorithm.cpp
-)
-ament_target_dependencies(${PROJECT_NAME}_core Eigen3)
-
-ament_auto_add_executable(${PROJECT_NAME} 
-  src/${PROJECT_NAME}_node.cpp
   src/RosPackageTemplate.cpp
+)
+ament_target_dependencies(${PROJECT_NAME} Eigen3)
+
+rclcpp_components_register_node(${PROJECT_NAME}
+  PLUGIN ${PROJECT_NAME}::RosPackageTemplate
+  EXECUTABLE ${PROJECT_NAME}_node
 )
 
 #############
@@ -48,7 +49,7 @@ endif()
 #############
 
 ament_auto_package(
-  INSTALL_TO_SHARE 
+  INSTALL_TO_SHARE
   config
   launch
 )

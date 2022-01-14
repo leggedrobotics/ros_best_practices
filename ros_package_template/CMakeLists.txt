@@ -25,8 +25,8 @@ find_package(Eigen3 REQUIRED)
 ###########
 
 ament_auto_add_library(${PROJECT_NAME} SHARED
-  src/Algorithm.cpp
-  src/RosPackageTemplate.cpp
+  src/algorithm.cpp
+  src/ros_package_template.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} Eigen3)
 

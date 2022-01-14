@@ -1,4 +1,4 @@
-#include "ros_package_template/Algorithm.hpp"
+#include "ros_package_template/algorithm.hpp"
 
 #include <boost/accumulators/accumulators.hpp>
 #include <boost/accumulators/statistics/count.hpp>

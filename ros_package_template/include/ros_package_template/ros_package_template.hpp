@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ros_package_template/Algorithm.hpp"
+#include "ros_package_template/algorithm.hpp"
 
 // ROS2
 #include "rclcpp/rclcpp.hpp"

@@ -1,4 +1,4 @@
-#include "ros_package_template/RosPackageTemplate.hpp"
+#include "ros_package_template/ros_package_template.hpp"
 
 // STD
 #include <string>

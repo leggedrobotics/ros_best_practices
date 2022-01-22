@@ -32,10 +32,10 @@ TEST(Algorithm, singleDataVector)
   Algorithm algorithm;
   Eigen::VectorXd inputData;
   inputData.resize(2);
-  inputData << inputValue, 3*inputValue;
+  inputData << inputValue, 3 * inputValue;
   algorithm.addData(inputData);
   const double average = algorithm.getAverage();
-  EXPECT_NEAR(2*inputValue, average, 1e-10);
+  EXPECT_NEAR(2 * inputValue, average, 1e-10);
 }
 
 TEST(Algorithm, multipleDataPoints)
@@ -43,7 +43,7 @@ TEST(Algorithm, multipleDataPoints)
   size_t nMeasurements = 100;
   std::vector<double> inputData(nMeasurements);
   double sum = 0.0;
-  for (auto& data : inputData) {
+  for (auto & data : inputData) {
     data = 100.0 * (double)rand() / RAND_MAX;
     sum += data;
   }

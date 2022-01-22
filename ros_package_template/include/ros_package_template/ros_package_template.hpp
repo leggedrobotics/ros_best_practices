@@ -1,28 +1,29 @@
 #pragma once
 
-#include "ros_package_template/Algorithm.hpp"
+#include "ros_package_template/algorithm.hpp"
 
 // ROS2
 #include "rclcpp/rclcpp.hpp"
 
-namespace ros_package_template {
+namespace ros_package_template
+{
 
 /*!
  * Main class for the node to handle the ROS interfacing.
  */
 class RosPackageTemplate : public rclcpp::Node
 {
- public:
+public:
   /*!
    * Constructor.
    * @param nodeHandle the ROS node handle.
    */
-  RosPackageTemplate(const std::string& name);
+  RosPackageTemplate(const rclcpp::NodeOptions & options);
 
-  /*!
+    /*!
    * Destructor.
    */
-  virtual ~RosPackageTemplate();
+    virtual ~RosPackageTemplate();
 };
 
-} /* namespace */
+}  // namespace ros_package_template

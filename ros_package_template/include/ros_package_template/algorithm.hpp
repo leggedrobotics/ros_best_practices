@@ -1,17 +1,17 @@
 #pragma once
 
+#include <eigen3/Eigen/Eigen>
 #include <memory>
 
-#include <Eigen/Core>
-
-namespace ros_package_template {
+namespace ros_package_template
+{
 
 /*!
  * Class containing the algorithmic part of the package.
  */
 class Algorithm
 {
- public:
+public:
   /*!
    * Constructor.
    */
@@ -32,7 +32,7 @@ class Algorithm
    * Add multiple measurements as once.
    * @param data new data.
    */
-  void addData(const Eigen::VectorXd& data);
+  void addData(const Eigen::VectorXd & data);
 
   /*!
    * Get the computed average of the data.
@@ -40,8 +40,7 @@ class Algorithm
    */
   double getAverage() const;
 
- private:
- 
+private:
   //! Forward declared structure that will contain the data
   struct Data;
 
@@ -49,4 +48,4 @@ class Algorithm
   std::unique_ptr<Data> data_;
 };
 
-} /* namespace */
+}  // namespace ros_package_template

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Eigen/Core>
+#include <eigen3/Eigen/Eigen>
 #include <memory>
 
 namespace ros_package_template

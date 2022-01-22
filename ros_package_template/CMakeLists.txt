@@ -16,10 +16,6 @@ add_definitions(-Wall -Werror)
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
-# See https://github.com/ros2/eigen3_cmake_module
-find_package(eigen3_cmake_module REQUIRED)
-find_package(Eigen3 REQUIRED)
-
 ###########
 ## Build ##
 ###########
@@ -28,7 +24,6 @@ ament_auto_add_library(${PROJECT_NAME} SHARED
   src/algorithm.cpp
   src/ros_package_template.cpp
 )
-ament_target_dependencies(${PROJECT_NAME} Eigen3)
 
 rclcpp_components_register_node(${PROJECT_NAME}
   PLUGIN ${PROJECT_NAME}::RosPackageTemplate
